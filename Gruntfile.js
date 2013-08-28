@@ -13,7 +13,7 @@ module.exports = function (grunt) {
 
 
     // Default task.
-    grunt.registerTask('default', ['clean', 'concat', 'jade', 'compass', 'copy']);
+    grunt.registerTask('default', ['clean', 'concat', 'jade', 'compass']);
     grunt.registerTask('test', ['karma']);
     grunt.registerTask('deploy', ['build_gh_pages']);
 
@@ -105,23 +105,11 @@ module.exports = function (grunt) {
             }
         },
 
-        copy: {
-            cname: [
-                {
-                    cwd: 'src/',
-                    expand: true,
-                    src: ['CNAME.txt'],
-                    dest: 'build/',
-                    flatten: true,
-                    filter: 'isFile'
-                }
-            ]
-        },
-
-
         'build_gh_pages': {
             options: {
-                dist: 'build'
+                dist: 'build',
+                pull: false,
+                cname: 'matterstome.io'
             },
             src: ['**']
         }
