@@ -1,0 +1,47 @@
+!!! 5
+
+//if lt IE 10
+    html.oldie#ng-app(ng-app='app')
+//[if gt IE 8]<!
+html(ng-app='app')
+    //<![endif]
+
+    head
+
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
+        base(href='/')
+
+
+        link(rel='stylesheet', type='text/css', href='https://dl.dropboxusercontent.com/u/2886688/web/Projekter/matterstome/build/css/main.css')
+
+        script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+        script(src='https://cdn.firebase.com/v0/firebase.js')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js')
+        script(src='https://dl.dropboxusercontent.com/u/2886688/web/Projekter/matterstome/build/js/app.js')
+
+    body(ng-controller='MainCtrl')
+
+        .existing
+            ul
+                li(ng-repeat='item in items')
+                    div {{item}}
+
+        .new
+            form(ng-submit='addItem()')
+                textarea(ng-model='new_item.name')
+                button(type='submit') Send
+
+
+
+
+
+
+        p Boilerplate
+        p {{items}}
+
+        ul
+            li(ng-repeat='item in items')
+                label Navn:
+                textarea(ng-model='item.name')
+
+            li(ng-click='addItem()') Nyt navn
