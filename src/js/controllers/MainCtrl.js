@@ -1,17 +1,15 @@
-app.controller('MainCtrl', function ($scope, angularFire) {
+app.controller('MainCtrl', function ($scope, SETTINGS, angularFireCollection) {
 
-    var url = 'https://matterstome.firebaseio.com/items',
-        promise = angularFire(url, $scope, 'items');
+    $scope.items = angularFireCollection(new Firebase(SETTINGS.firebase_url + "/items"));
 
-    promise.then(function () {
-
+    $scope.addItem = function () {
+        $scope.items.add($scope.new_item);
         $scope.new_item = '';
+    };
 
-        $scope.addItem = function () {
-            $scope.items.push($scope.new_item);
-            $scope.new_item = '';
-        }
-
-    });
+    $scope.showItem = function (item) {
+        alert("not implemented yet");
+        console.log(this);
+    }
 
 });

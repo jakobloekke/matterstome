@@ -1,3 +1,113 @@
-p {
-  color: #4b4b4b;
+@import 'compass';
+@import 'lib/flexbox';
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400,900);
+@import url(http://fonts.googleapis.com/css?family=Poly);
+
+
+.flex-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-direction: row;
+  -ms-flex-wrap: wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.flex-item {
+  -webkit-flex: 1 auto;
+  -moz-flex: 1 auto;
+  -ms-flex: 1 auto;
+  flex: 1 auto;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ledger', sans-serif;
+  background-color: whitesmoke;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  color: #F98648;
+  font-weight: 900;
+  padding: 1rem;
+
+  border-bottom: 3px solid #A4BA71;
+}
+
+main {
+  @include display-flex;
+}
+
+.existing {
+
+  @extend .flex-container;
+
+  padding: 1rem;
+
+  li {
+    @include display-flex(inline-flex);
+    @include flex(1 auto);
+
+    -webkit-justify-content: center;
+    margin: .25rem;
+    list-style-type: none;
+    border-radius: .25rem;
+    background-color: #FBB829;
+    padding: 1rem;
+    transition: background-color .2s ease-in-out;
+
+    &.item:hover {
+      background-color: darken(#FBB829, 10);
+      cursor: pointer;
+    }
+
+    &.new-item {
+      background-color: rgba(251, 184, 41, 0.5);
+    }
+
+    h2,
+    p {
+      font-weight: 100;
+      margin-bottom: .5rem;
+    }
+
+    button {
+      padding: .25rem;
+      width: 100%;
+    }
+  }
+}
+
+.new {
+  @include display-flex;
+
+  background-color: rgba(210, 215, 165, 0.47);
+  border-radius: .25rem;
+  padding: 1rem;
+  width: 15rem;
+
+  textarea {
+    height: 200px;
+    width: 100%;
+  }
+
+  button {
+    width: 100px;
+  }
 }

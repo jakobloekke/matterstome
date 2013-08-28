@@ -12,36 +12,46 @@ html(ng-app='app')
         base(href='/')
 
 
-        link(rel='stylesheet', type='text/css', href='https://dl.dropboxusercontent.com/u/2886688/web/Projekter/matterstome/build/css/main.css')
+        //link(rel='stylesheet', type='text/css', href='https://dl.dropboxusercontent.com/u/2886688/web/Projekter/matterstome/build/css/main.css')
+        link(rel='stylesheet', type='text/css', href='/css/main.css')
 
         script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
         script(src='https://cdn.firebase.com/v0/firebase.js')
         script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js')
-        script(src='https://dl.dropboxusercontent.com/u/2886688/web/Projekter/matterstome/build/js/app.js')
+        //script(src='https://dl.dropboxusercontent.com/u/2886688/web/Projekter/matterstome/build/js/app.js')
+        script(src='/js/app.js')
 
     body(ng-controller='MainCtrl')
 
-        .existing
-            ul
-                li(ng-repeat='item in items')
-                    div {{item}}
+        header
+            h1 #matterstome
 
-        .new
-            form(ng-submit='addItem()')
-                textarea(ng-model='new_item.name')
-                button(type='submit') Send
+        main
+            ul.existing
+                li.new-item
+                    div
+                        h2 Add a new item
+                        form(ng-submit='addItem()')
+                            p
+                                label What is it?
+                                input(ng-model='new_item.name')
+                            p
+                                label Describe it
+                                textarea(ng-model='new_item.content')
+                            p
+                                label Link
+                                input(type='url', ng-model='new_item.url')
+
+                            button(type='submit') Send
+
+                li.item(ng-repeat='item in items | reverse')
+                    a(ng-href='{{item.url}}')
+                        h2 {{item.name}}
+                        p {{item.content}}
 
 
-
-
-
-
-        p Boilerplate
-        p {{items}}
-
-        ul
-            li(ng-repeat='item in items')
-                label Navn:
-                textarea(ng-model='item.name')
-
-            li(ng-click='addItem()') Nyt navn
+            //.new
+                form(ng-submit='addItem()')
+                    input(ng-model='new_item.name')
+                    textarea(ng-model='new_item.content')
+                    button(type='submit') Send
