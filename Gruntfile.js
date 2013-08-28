@@ -8,11 +8,14 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-build-gh-pages');
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
 
     // Default task.
-    grunt.registerTask('default', ['clean', 'concat', 'jade', 'compass']);
+    grunt.registerTask('default', ['clean', 'concat', 'jade', 'compass', 'copy']);
     grunt.registerTask('test', ['karma']);
+    grunt.registerTask('deploy', ['build_gh_pages']);
 
     // Travis CI task.
     grunt.registerTask('travis', ['clean', 'karma']);
@@ -100,6 +103,27 @@ module.exports = function (grunt) {
                     cssDir: 'build/css'
                 }
             }
+        },
+
+        copy: {
+            cname: [
+                {
+                    cwd: 'src/',
+                    expand: true,
+                    src: ['CNAME.txt'],
+                    dest: 'build/',
+                    flatten: true,
+                    filter: 'isFile'
+                }
+            ]
+        },
+
+
+        'build_gh_pages': {
+            options: {
+                dist: 'build'
+            },
+            src: ['**']
         }
 
 
