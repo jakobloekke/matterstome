@@ -49,8 +49,12 @@ header {
   padding: 1rem;
   border-bottom: 3px solid #A4BA71;
 }
+/* line 50, ../../src/scss/main.scss */
+header p {
+  color: #A4BA71;
+}
 
-/* line 53, ../../src/scss/main.scss */
+/* line 57, ../../src/scss/main.scss */
 main {
   display: -webkit-flexbox;
   display: -ms-flexbox;
@@ -58,11 +62,11 @@ main {
   display: flex;
 }
 
-/* line 57, ../../src/scss/main.scss */
+/* line 61, ../../src/scss/main.scss */
 .existing {
   padding: 1rem;
 }
-/* line 63, ../../src/scss/main.scss */
+/* line 67, ../../src/scss/main.scss */
 .existing li {
   display: -webkit-inline-flexbox;
   display: -ms-inline-flexbox;
@@ -80,33 +84,33 @@ main {
   transition: background-color .2s ease-in-out;
   box-shadow: inset 0 0 143px #eda304;
 }
-/* line 76, ../../src/scss/main.scss */
+/* line 80, ../../src/scss/main.scss */
 .existing li.item:hover {
   background-color: #eda304;
   cursor: pointer;
 }
-/* line 81, ../../src/scss/main.scss */
+/* line 85, ../../src/scss/main.scss */
 .existing li.new-item {
   background-color: #A4BA71;
   box-shadow: inset 0 0 143px #8da751;
 }
-/* line 86, ../../src/scss/main.scss */
+/* line 90, ../../src/scss/main.scss */
 .existing li a {
   max-width: 25rem;
 }
-/* line 91, ../../src/scss/main.scss */
+/* line 95, ../../src/scss/main.scss */
 .existing li h2,
 .existing li p {
   font-weight: 100;
   margin-bottom: .5rem;
 }
-/* line 96, ../../src/scss/main.scss */
+/* line 100, ../../src/scss/main.scss */
 .existing li button {
   padding: .25rem;
   width: 100%;
 }
 
-/* line 103, ../../src/scss/main.scss */
+/* line 107, ../../src/scss/main.scss */
 .new {
   display: -webkit-flexbox;
   display: -ms-flexbox;
@@ -117,12 +121,12 @@ main {
   padding: 1rem;
   width: 15rem;
 }
-/* line 111, ../../src/scss/main.scss */
+/* line 115, ../../src/scss/main.scss */
 .new textarea {
   height: 200px;
   width: 100%;
 }
-/* line 116, ../../src/scss/main.scss */
+/* line 120, ../../src/scss/main.scss */
 .new button {
   width: 100px;
 }
