@@ -107,8 +107,7 @@ module.exports = function (grunt) {
 
         'gh-pages': {
             options: {
-                base: 'build',
-                cname: 'matterstome.io'
+                base: 'build'
             },
             src: ['**']
         }
