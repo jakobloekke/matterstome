@@ -107,7 +107,8 @@ module.exports = function (grunt) {
 
         'gh-pages': {
             options: {
-                base: 'build'
+                base: 'build',
+                add: true
             },
             src: ['**']
         }
