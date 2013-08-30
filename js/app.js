@@ -641,22 +641,3 @@ app.config(function ($routeProvider, $locationProvider, SETTINGS) {
         })
         .otherwise({ redirectTo: '/' });
 });
-
-(function (win, doc, tagtype, src, variable, a, m) {
-    win['GoogleAnalyticsObject'] = variable;
-
-    win[variable] = win[variable] || function () {
-        (win[variable].q = win[variable].q || [])
-            .push(arguments)
-    },
-        win[variable].l = 1 * new Date();
-        a = doc.createElement(tagtype),
-        m = doc.getElementsByTagName(tagtype)[0];
-
-    a.async = 1;
-    a.src = src;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-window.ga('create', 'UA-3365089-8', 'matterstome.io');
-window.ga('send', 'pageview');
