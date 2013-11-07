@@ -7,7 +7,7 @@
   <!--<![endif]-->
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-    <base href="/build/">
+    <!--base(href='/')-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
@@ -30,10 +30,8 @@
       <p>Stuff we truly care about</p>
     </header>
     <main>
-      <aside><a ng-href="login">Sign in</a></aside>
-      <article>
-        <ul class="existing">
-          <!--li.new-item
+      <ul class="existing">
+        <li class="new-item">
           <div>
             <h2>Add a new item</h2>
             <form ng-submit="addItem()">
@@ -52,12 +50,11 @@
               <button type="submit">Send</button>
             </form>
           </div>
-          -->
-          <li ng-repeat="item in items | reverse" class="item"><a ng-href="{{item.url}}">
-              <h2>{{item.name}}</h2>
-              <p>{{item.content}}</p></a></li>
-        </ul>
-      </article>
+        </li>
+        <li ng-repeat="item in items | reverse" class="item"><a ng-href="{{item.url}}">
+            <h2>{{item.name}}</h2>
+            <p>{{item.content}}</p></a></li>
+      </ul>
     </main>
   </body>
 </html>

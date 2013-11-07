@@ -55,7 +55,7 @@ header p {
 }
 
 /* line 57, ../../src/scss/main.scss */
-article {
+main {
   display: -webkit-flexbox;
   display: -ms-flexbox;
   display: -webkit-flex;

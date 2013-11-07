@@ -601,12 +601,6 @@ app.constant('SETTINGS', {
     'firebase_url': 'https://matterstome.firebaseio.com'
 });
 
-app.controller('LoginCtrl', function ($scope, SETTINGS, angularFireCollection) {
-
-
-
-});
-
 app.controller('MainCtrl', function ($scope, SETTINGS, angularFireCollection) {
 
     $scope.items = angularFireCollection(new Firebase(SETTINGS.firebase_url + "/items"));
@@ -644,10 +638,6 @@ app.config(function ($routeProvider, $locationProvider, SETTINGS) {
         .when('/', {
             templateUrl: SETTINGS.views_url + "/frontpage.html",
             controller: 'MainCtrl'
-        })
-        .when('/login', {
-            templateUrl: SETTINGS.views_url + "/login.html",
-            controller: 'LoginCtrl'
         })
         .otherwise({ redirectTo: '/' });
 });
