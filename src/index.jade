@@ -9,13 +9,16 @@ html(ng-app='app')
     head
 
         meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0')
-        //base(href='/')
+        base(href='/')
 
         link(rel='stylesheet', type='text/css', href='css/main.css')
 
         script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
-        script(src='https://cdn.firebase.com/v0/firebase.js')
         script(src='//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.js')
+        script(src='https://cdn.firebase.com/v0/firebase.js')
+        script(src='https://cdn.firebase.com/v0/firebase-simple-login.js')
+        script(src='https://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.js')
+
         script(src='js/app.js')
 
         script
@@ -33,23 +36,24 @@ html(ng-app='app')
             h1 #matterstome
             p Stuff we truly care about
 
-        main
-            ul.existing
-                li.new-item
-                    div
-                        h2 Add a new item
-                        form(ng-submit='addItem()')
-                            p
-                                label What is it?
-                                input(ng-model='new_item.name')
-                            p
-                                label Describe it
-                                textarea(ng-model='new_item.content')
-                            p
-                                label Link
-                                input(type='url', ng-model='new_item.url')
+            .login
+                a(ng-href="#", ng-click="login()", ng-show="!user") Log in with Twitter
+                a(ng-href="#", ng-click="logout()", ng-show="user") Log out ({{user.name}})
 
-                            button(type='submit') Send
+        main
+
+
+
+            .loading(ng-show="loading_items")
+
+            ul.items
+                li.new-item
+                    h2
+                        input(placeholder='Title', ng-model='new_item.name')
+                    p
+                        textarea(placeholder='Description', ng-model='new_item.content')
+
+                    button(ng-click="addItem()") Send
 
                 li.item(ng-repeat='item in items | reverse')
                     a(ng-href='{{item.url}}')

@@ -1,19 +1,13 @@
 /*global module:false*/
 module.exports = function (grunt) {
 
-    // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.loadNpmTasks('grunt-contrib-compass');
-    grunt.loadNpmTasks('grunt-gh-pages');
-    grunt.loadNpmTasks('grunt-contrib-copy');
+    require('time-grunt')(grunt);
+    require('load-grunt-tasks')(grunt);
 
 
     // Default task.
     grunt.registerTask('default', ['clean', 'concat', 'jade', 'compass']);
+    grunt.registerTask('server', ['default', 'connect:livereload', 'watch']);
     grunt.registerTask('test', ['karma']);
     grunt.registerTask('deploy', ['gh-pages']);
 
@@ -44,11 +38,28 @@ module.exports = function (grunt) {
 
         // Task configuration.
 
+        connect: {
+            options: {
+                port: 9000,
+                // Change this to '0.0.0.0' to access the server from outside.
+                hostname: 'localhost',
+                livereload: 35729 //inject the script
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    base: [
+                        'build'
+                    ]
+                }
+            }
+        },
+
         watch: {
             files: ['src/**/*', 'test/**/*'],
             tasks: ['default'],
             options: {
-                livereload: true
+                livereload: '<%= connect.options.livereload %>' //Get the port number from connect configuration
             }
         },
 
@@ -112,6 +123,8 @@ module.exports = function (grunt) {
             },
             src: ['**']
         }
+
+
 
 
     });

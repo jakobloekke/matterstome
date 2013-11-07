@@ -4,18 +4,8 @@
 @import url(http://fonts.googleapis.com/css?family=Poly);
 
 
-.flex-container {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  -moz-flex-flow: row wrap;
-  -ms-flex-direction: row;
-  -ms-flex-wrap: wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
+
+
 
 .flex-item {
   -webkit-flex: 1 auto;
@@ -46,21 +36,24 @@ header {
   color: #F98648;
   font-weight: 900;
   padding: 1rem;
+  border-bottom: 3px solid #A4BA71;
 
   p {
     color: #A4BA71;
   }
 
-  border-bottom: 3px solid #A4BA71;
+  .login {
+    font-size: 85%;
+    margin-top: 1em;
+  }
+
 }
 
-main {
+
+.items {
+
   @include display-flex;
-}
-
-.existing {
-
-  @extend .flex-container;
+  @include flex-flow(row wrap);
 
   padding: .75rem;
 
@@ -85,6 +78,19 @@ main {
     &.new-item {
       background-color: #A4BA71;
       box-shadow: inset 0 0 143px darken(#A4BA71, 10);
+
+      p {
+        overflow: auto;
+      }
+
+      label {
+
+      }
+
+      input, textarea {
+
+      }
+
     }
 
     a {
@@ -94,30 +100,11 @@ main {
     h2,
     p {
       font-weight: 100;
-      margin-bottom: .5rem;
     }
 
     button {
       padding: .25rem;
       width: 100%;
     }
-  }
-}
-
-.new {
-  @include display-flex;
-
-  background-color: rgba(210, 215, 165, 0.47);
-  border-radius: .25rem;
-  padding: 1rem;
-  width: 15rem;
-
-  textarea {
-    height: 200px;
-    width: 100%;
-  }
-
-  button {
-    width: 100px;
   }
 }
