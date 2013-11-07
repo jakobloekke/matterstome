@@ -55,7 +55,7 @@ header p {
 }
 
 /* line 57, ../../src/scss/main.scss */
-main {
+article {
   display: -webkit-flexbox;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -98,7 +98,7 @@ main {
 .existing li a {
   max-width: 25rem;
 }
-/* line 95, ../../src/scss/main.scss */
+/* line 94, ../../src/scss/main.scss */
 .existing li h2,
 .existing li p {
   font-weight: 100;
