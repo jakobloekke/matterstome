@@ -1,20 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:100,400,900);
 @import url(http://fonts.googleapis.com/css?family=Poly);
-/* line 7, ../../src/scss/main.scss */
-.flex-container, .existing {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  -moz-flex-flow: row wrap;
-  -ms-flex-direction: row;
-  -ms-flex-wrap: wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-/* line 20, ../../src/scss/main.scss */
+/* line 10, ../../src/scss/main.scss */
 .flex-item {
   -webkit-flex: 1 auto;
   -moz-flex: 1 auto;
@@ -22,52 +8,56 @@
   flex: 1 auto;
 }
 
-/* line 28, ../../src/scss/main.scss */
+/* line 18, ../../src/scss/main.scss */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* line 34, ../../src/scss/main.scss */
+/* line 24, ../../src/scss/main.scss */
 body {
   font-family: 'Ledger', sans-serif;
   background-color: whitesmoke;
   margin: 0;
 }
 
-/* line 40, ../../src/scss/main.scss */
+/* line 30, ../../src/scss/main.scss */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* line 45, ../../src/scss/main.scss */
+/* line 35, ../../src/scss/main.scss */
 header {
   color: #F98648;
   font-weight: 900;
   padding: 1rem;
   border-bottom: 3px solid #A4BA71;
 }
-/* line 50, ../../src/scss/main.scss */
+/* line 41, ../../src/scss/main.scss */
 header p {
   color: #A4BA71;
 }
+/* line 45, ../../src/scss/main.scss */
+header .login {
+  font-size: 85%;
+  margin-top: 1em;
+}
 
-/* line 57, ../../src/scss/main.scss */
-main {
+/* line 53, ../../src/scss/main.scss */
+.items {
   display: -webkit-flexbox;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-}
-
-/* line 61, ../../src/scss/main.scss */
-.existing {
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   padding: .75rem;
 }
-/* line 67, ../../src/scss/main.scss */
-.existing li {
+/* line 61, ../../src/scss/main.scss */
+.items li {
   display: -webkit-inline-flexbox;
   display: -ms-inline-flexbox;
   display: -webkit-inline-flex;
@@ -84,49 +74,31 @@ main {
   transition: background-color .2s ease-in-out;
   box-shadow: inset 0 0 143px #eda304;
 }
-/* line 80, ../../src/scss/main.scss */
-.existing li.item:hover {
+/* line 74, ../../src/scss/main.scss */
+.items li.item:hover {
   background-color: #eda304;
   cursor: pointer;
 }
-/* line 85, ../../src/scss/main.scss */
-.existing li.new-item {
+/* line 79, ../../src/scss/main.scss */
+.items li.new-item {
   background-color: #A4BA71;
   box-shadow: inset 0 0 143px #8da751;
 }
-/* line 90, ../../src/scss/main.scss */
-.existing li a {
+/* line 83, ../../src/scss/main.scss */
+.items li.new-item p {
+  overflow: auto;
+}
+/* line 97, ../../src/scss/main.scss */
+.items li a {
   max-width: 25rem;
 }
-/* line 94, ../../src/scss/main.scss */
-.existing li h2,
-.existing li p {
+/* line 101, ../../src/scss/main.scss */
+.items li h2,
+.items li p {
   font-weight: 100;
-  margin-bottom: .5rem;
 }
-/* line 100, ../../src/scss/main.scss */
-.existing li button {
+/* line 106, ../../src/scss/main.scss */
+.items li button {
   padding: .25rem;
   width: 100%;
-}
-
-/* line 107, ../../src/scss/main.scss */
-.new {
-  display: -webkit-flexbox;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  background-color: rgba(210, 215, 165, 0.47);
-  border-radius: .25rem;
-  padding: 1rem;
-  width: 15rem;
-}
-/* line 115, ../../src/scss/main.scss */
-.new textarea {
-  height: 200px;
-  width: 100%;
-}
-/* line 120, ../../src/scss/main.scss */
-.new button {
-  width: 100px;
 }
